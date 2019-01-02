@@ -1,6 +1,7 @@
 package com.mitocode.service.impl;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -25,20 +26,19 @@ public class RolServiceImpl implements IRolService{
 
 	@Override
 	public void eliminar(int id) {
-		// TODO Auto-generated method stub
-		
+		dao.deleteById(id);
 	}
 
 	@Override
 	public Rol listarId(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		//INI-CAMBIO PARA SPRING BOOT 2
+		Optional<Rol> opt = dao.findById(id);
+		return opt.isPresent() ? opt.get() : new Rol();
 	}
 
 	@Override
 	public List<Rol> listar() {
-		// TODO Auto-generated method stub
-		return null;
+		return dao.findAll();
 	}
 
 }

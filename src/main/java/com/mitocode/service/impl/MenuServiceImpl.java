@@ -54,7 +54,6 @@ public class MenuServiceImpl implements IMenuService {
 			m.setIcono(String.valueOf(x[1]));
 			m.setNombre(String.valueOf(x[2]));
 			m.setUrl(String.valueOf(x[3]));		
-	
 			menus.add(m);
 		});
 		return menus;			
