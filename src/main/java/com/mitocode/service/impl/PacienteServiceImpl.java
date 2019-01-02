@@ -19,13 +19,13 @@ public class PacienteServiceImpl implements IPacienteService {
 	private IPacienteDAO dao;
 
 	@Override
-	public Paciente registrar(Paciente paciente) {
-		return dao.save(paciente);
+	public void registrar(Paciente paciente) {
+		dao.save(paciente);
 	}
 
 	@Override
-	public Paciente modificar(Paciente paciente) {
-		return dao.save(paciente);
+	public void modificar(Paciente paciente) {
+		dao.save(paciente);
 	}
 
 	@Override

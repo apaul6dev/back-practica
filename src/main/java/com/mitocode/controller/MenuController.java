@@ -36,6 +36,5 @@ public class MenuController {
 		menues = service.listarMenuPorUsuario(nombre);
 		return new ResponseEntity<List<Menu>>(menues, HttpStatus.OK);
 	}
-	
-	
+
 }

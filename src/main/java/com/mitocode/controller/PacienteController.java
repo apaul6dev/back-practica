@@ -73,7 +73,8 @@ public class PacienteController {
 	@PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Object> registrar(@Valid @RequestBody Paciente paciente) {
 		Paciente pac = new Paciente();
-		pac = service.registrar(paciente);
+		service.registrar(paciente);
+		pac = service.listarId(paciente.getIdPaciente());
 		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
 				.buildAndExpand(pac.getIdPaciente()).toUri();
 

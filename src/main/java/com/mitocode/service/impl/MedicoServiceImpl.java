@@ -17,13 +17,13 @@ public class MedicoServiceImpl implements IMedicoService {
 	private IMedicoDAO dao;
 
 	@Override
-	public Medico registrar(Medico medico) {
-		return dao.save(medico);
+	public void registrar(Medico medico) {
+		dao.save(medico);
 	}
 
 	@Override
-	public Medico modificar(Medico medico) {
-		return dao.save(medico);
+	public void modificar(Medico medico) {
+		dao.save(medico);
 	}
 
 	@Override
