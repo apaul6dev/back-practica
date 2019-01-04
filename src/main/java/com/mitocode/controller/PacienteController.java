@@ -41,9 +41,7 @@ public class PacienteController {
 	@GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<Paciente>> listar() {
 		List<Paciente> pacientes = new ArrayList<>();
-
 		pacientes = service.listar();
-
 		return new ResponseEntity<List<Paciente>>(pacientes, HttpStatus.OK);
 	}
 	
