@@ -48,9 +48,7 @@ public class PacienteController {
 	@GetMapping(value="/pageable", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Page<Paciente>> listarPageable(Pageable pageable) {
 		Page<Paciente> pacientes = null;
-
 		pacientes = service.listarPageable(pageable);
-
 		return new ResponseEntity<Page<Paciente>>(pacientes, HttpStatus.OK);
 	}
 

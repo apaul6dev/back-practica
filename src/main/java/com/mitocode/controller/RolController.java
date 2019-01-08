@@ -7,6 +7,8 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -62,6 +64,13 @@ public class RolController {
 	public ResponseEntity<Object> actualizar(@Valid @RequestBody Rol rol) {
 		service.modificar(rol);
 		return new ResponseEntity<Object>(HttpStatus.OK);
+	}
+	
+	@GetMapping(value = "/rolespages", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Page<Rol>> listarPageable(Pageable pageable) {
+		Page<Rol> roles = null;
+		roles = service.listarPageable(pageable);
+		return new ResponseEntity<Page<Rol>>(roles, HttpStatus.OK);
 	}
 
 }
