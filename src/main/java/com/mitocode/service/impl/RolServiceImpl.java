@@ -1,5 +1,6 @@
 package com.mitocode.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -49,6 +50,19 @@ public class RolServiceImpl implements IRolService {
 	@Override
 	public Page<Rol> listarPageable(Pageable pageable) {		
 		return dao.findAll(pageable);
+	}
+
+	@Override
+	public List<Rol> listarRolesPorMenu(Integer idMenu) {
+		List<Rol> roles = new ArrayList<>();
+		dao.listarRolesPorMenu(idMenu).forEach( x -> {
+			Rol r = new Rol();
+			r.setIdRol((Integer.parseInt(String.valueOf(x[0]))));
+			r.setNombre(String.valueOf(x[1]));
+			r.setDescripcion(String.valueOf(x[2]));		
+			roles.add(r);
+		});
+		return roles;	
 	}
 
 }

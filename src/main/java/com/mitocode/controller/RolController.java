@@ -72,5 +72,12 @@ public class RolController {
 		roles = service.listarPageable(pageable);
 		return new ResponseEntity<Page<Rol>>(roles, HttpStatus.OK);
 	}
+	
+	@GetMapping(value = "/rolesmenu/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<List<Rol>> listar(@PathVariable("id") Integer id) {
+		List<Rol> roles = new ArrayList<>();
+		roles = service.listarRolesPorMenu(id);
+		return new ResponseEntity<List<Rol>>(roles, HttpStatus.OK);
+	}
 
 }

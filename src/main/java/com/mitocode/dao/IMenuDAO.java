@@ -17,4 +17,5 @@ public interface IMenuDAO extends JpaRepository<Menu, Integer>{
 	
 	//0 | [ 1, 'serach', 'buscar', '/buscar']
 	//1 | [ 2, 'register', 'registrar', '/consulta']
+		
 }
