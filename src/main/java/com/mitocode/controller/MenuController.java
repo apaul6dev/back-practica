@@ -50,7 +50,7 @@ public class MenuController {
 	 * @return
 	 */
 	@PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Object> registrar(@Valid @RequestBody Menu m) {
+	public ResponseEntity<Object> actualizar(@Valid @RequestBody Menu m) {
 		Menu pac = new Menu();
 		service.registrar(m);
 		pac = service.listarId(m.getIdMenu());

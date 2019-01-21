@@ -15,4 +15,7 @@ public interface IRolDAO extends JpaRepository<Rol, Integer> {
 	@Query(value = "select r.id_rol, r.nombre, r.descripcion from menu m, menu_rol mr, rol r where mr.id_menu=m.id_menu and mr.id_rol=r.id_rol and m.id_menu=:idMenu", nativeQuery = true)
 	List<Object[]> listarRolesPorMenu(@Param("idMenu") Integer idMenu);
 
+	@Query(value = "select b.id_rol, b.nombre, b.descripcion from ( select r.* from rol r, menu_rol mr, menu m where r.id_rol=mr.id_rol and m.id_menu=mr.id_menu and m.id_menu = :idMenu ) a right join rol b on a.id_rol = b.id_rol where a.id_rol is null", nativeQuery = true)
+	List<Object[]> listarRolesNoAsignadosMenu(@Param("idMenu") Integer idMenu);
+
 }

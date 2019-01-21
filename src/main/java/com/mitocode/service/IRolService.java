@@ -10,6 +10,7 @@ import com.mitocode.model.Rol;
 public interface IRolService extends ICRUD<Rol> {
 	
 	List<Rol> listarRolesPorMenu(Integer idMenu);
+	List<Rol> listarRolesNoAsignadosMenu(Integer idMenu);
 	Page<Rol> listarPageable(Pageable pageable);
 	
 }
