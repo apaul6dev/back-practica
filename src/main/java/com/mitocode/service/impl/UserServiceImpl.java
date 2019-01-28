@@ -18,11 +18,11 @@ import com.mitocode.model.Usuario;
 public class UserServiceImpl implements UserDetailsService {
 
 	@Autowired
-	private IUsuarioDAO userDAO;
+	private IUsuarioDAO dao;
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		Usuario user = userDAO.findOneByUsername(username);
+		Usuario user = dao.findOneByUsername(username);
 
 		if (user == null) {
 			throw new UsernameNotFoundException(String.format("Usuario no existe", username));
@@ -38,4 +38,5 @@ public class UserServiceImpl implements UserDetailsService {
 
 		return userDetails;
 	}
+
 }
