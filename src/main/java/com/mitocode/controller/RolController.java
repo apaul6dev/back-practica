@@ -86,5 +86,13 @@ public class RolController {
 		roles = service.listarRolesNoAsignadosMenu(id);
 		return new ResponseEntity<List<Rol>>(roles, HttpStatus.OK);
 	}
+	
+	
+	@GetMapping(value = "/rolesusuarionoasinados/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<List<Rol>> listarRolesNoAsignadosUsuario(@PathVariable("id") Integer id) {
+		List<Rol> roles = new ArrayList<>();
+		roles = service.listarRolesNoAsignadosUsuario(id);
+		return new ResponseEntity<List<Rol>>(roles, HttpStatus.OK);
+	}
 
 }

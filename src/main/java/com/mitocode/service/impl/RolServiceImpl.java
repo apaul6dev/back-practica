@@ -78,4 +78,17 @@ public class RolServiceImpl implements IRolService {
 		return roles;	
 	}
 
+	@Override
+	public List<Rol> listarRolesNoAsignadosUsuario(Integer idMenu) {
+		List<Rol> roles = new ArrayList<>();
+		dao.listarRolesNoAsignadosUsuario(idMenu).forEach( x -> {
+			Rol r = new Rol();
+			r.setIdRol((Integer.parseInt(String.valueOf(x[0]))));
+			r.setNombre(String.valueOf(x[1]));
+			r.setDescripcion(String.valueOf(x[2]));		
+			roles.add(r);
+		});
+		return roles;	
+	}
+
 }

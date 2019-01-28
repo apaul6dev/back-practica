@@ -11,6 +11,7 @@ public interface IRolService extends ICRUD<Rol> {
 	
 	List<Rol> listarRolesPorMenu(Integer idMenu);
 	List<Rol> listarRolesNoAsignadosMenu(Integer idMenu);
+	List<Rol> listarRolesNoAsignadosUsuario(Integer idMenu);
 	Page<Rol> listarPageable(Pageable pageable);
 	
 }
