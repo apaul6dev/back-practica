@@ -16,7 +16,7 @@ import javax.persistence.Table;
 public class Usuario {
 
 	@Id
-	private int idUsuario;
+	private long idUsuario;
 
 	@Column(name = "nombre", nullable = false, unique = true)
 	private String username;
@@ -31,11 +31,11 @@ public class Usuario {
 	@JoinTable(name = "usuario_rol", joinColumns = @JoinColumn(name = "id_usuario", referencedColumnName = "idUsuario"), inverseJoinColumns = @JoinColumn(name = "id_rol", referencedColumnName = "idRol"))
 	private List<Rol> roles;
 
-	public int getIdUsuario() {
+	public long getIdUsuario() {
 		return idUsuario;
 	}
 
-	public void setIdUsuario(int idUsuario) {
+	public void setIdUsuario(long idUsuario) {
 		this.idUsuario = idUsuario;
 	}
 
@@ -69,6 +69,12 @@ public class Usuario {
 
 	public void setRoles(List<Rol> roles) {
 		this.roles = roles;
+	}
+
+	@Override
+	public String toString() {
+		return "Usuario [idUsuario=" + idUsuario + ", username=" + username + ", password=" + password + ", enabled="
+				+ enabled + ", roles=" + roles + "]";
 	}
 
 }
